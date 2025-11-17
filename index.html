@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityPulse - Smart City Dashboard</title>
+    <meta name="description" content="CityPulse: Your interactive smart city dashboard for real-time weather, alerts, and civic engagement.">
+    <meta name="author" content="CityPulse Developments">
+
+    <!-- =============== ICONS & FONTS =============== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- =============== LEAFLET CSS =============== -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+    <!-- =============== YOUR CUSTOM CSS =============== -->
+    <!-- Put main layout first -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Optional extra styling file -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- =============== LEAFLET JS (Ok here) =============== -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body data-theme="dark">
+
+    <nav class="sidebar" role="navigation" aria-label="Main Navigation">
+        <div class="sidebar-header">
+            <h3><i class="fa-solid fa-city"></i> <span>CityPulse</span></h3>
+            <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle Sidebar">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+        </div>
+        
+        <ul class="nav-links">
+            <li>
+                <a href="#home" class="nav-link active" data-page="home">
+                    <i class="fa-solid fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#alerts" class="nav-link" data-page="alerts">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span>City Alerts</span>
+                </a>
+            </li>
+            <li>
+                <a href="#map" class="nav-link" data-page="map">
+                    <i class="fa-solid fa-map-marked-alt"></i>
+                    <span>Interactive Map</span>
+                </a>
+            </li>
+            <li>
+                <a href="#connect" class="nav-link" data-page="connect">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>Citizen Connect</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="sidebar-footer">
+            <div class="theme-toggle" id="theme-toggle" role="button" aria-label="Toggle Light/Dark Theme">
+                <i class="fa-solid fa-moon"></i>
+                <i class="fa-solid fa-sun"></i>
+                <span class="toggle-switch"></span>
+            </div>
+            <p><span>&copy; 2025 CityPulse</span></p>
+        </div>
+    </nav>
+
+    <main class="main-content" role="main">
+
+        <section id="home" class="page active">
+            <header class="page-header">
+                <h1>Dashboard</h1>
+                <div class="header-widget" id="current-time-date">
+                    </div>
+            </header>
+            
+            <div class="welcome-box glass-card">
+                <i class="fa-solid fa-hand-sparkles"></i>
+                <h2>Welcome back, City Dweller!</h2>
+                <p>Here is your real-time civic update.</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card glass-card weather-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                        <span>Current Weather</span>
+                    </div>
+                    <div class="card-body">
+                        <h2 id="dash-temp">--°C</h2>
+                        <p id="dash-weather-desc">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="card glass-card aqi-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-wind"></i>
+                        <span>Air Quality Index (AQI)</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="gauge-container">
+                            <div class="gauge-outer">
+                                <div class="gauge-inner">
+                                    <div id="aqi-value" class="gauge-value">--</div>
+                                </div>
+                            </div>
+                            <div class="gauge-cover"></div>
+                        </div>
+                        <p id="aqi-status">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="card glass-card traffic-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-car-side"></i>
+                        <span>Traffic Density</span>
+                    </div>
+                    <div class="card-body">
+                         <div class="gauge-container">
+                            <div class="gauge-outer traffic">
+                                <div class="gauge-inner">
+                                    <div id="traffic-value" class="gauge-value">--</div>
+                                </div>
+                            </div>
+                            <div class="gauge-cover"></div>
+                        </div>
+                        <p id="traffic-status">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="card glass-card quick-links-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-link"></i>
+                        <span>Quick Links</span>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="quick-link"><i class="fa-solid fa-bus"></i><span>Bus Schedule</span></a>
+                        <a href="#" class="quick-link"><i class="fa-solid fa-bolt"></i><span>Pay Utilities</span></a>
+                        <a href="#" class="quick-link"><i class="fa-solid fa-calendar-days"></i><span>Events</span></a>
+                        <a href="#" class="quick-link"><i class="fa-solid fa-building-columns"></i><span>Govt. Portal</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="alerts" class="page">
+            <header class="page-header">
+                <h1>City Alerts & News</h1>
+            </header>
+            
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Traffic">Traffic</button>
+                <button class="filter-btn" data-filter="Health">Health</button>
+                <button class="filter-btn" data-filter="Weather">Weather</button>
+                <button class="filter-btn" data-filter="Public">Public Notice</button>
+            </div>
+
+            <div class="alerts-container" id="alerts-list">
+                </div>
+        </section>
+
+        <section id="map" class="page">
+            <header class="page-header">
+                <h1>Interactive City Map</h1>
+            </header>
+            
+            <!-- <div class="map-container">
+                <div class="city-map-img">
+                    <div class="map-zone" data-zone="hospital" style="top: 25%; left: 30%;">
+                        <i class="fa-solid fa-hospital"></i>
+                    </div>
+                    <div class="map-zone" data-zone="park" style="top: 50%; left: 60%;">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <div class="map-zone" data-zone="school" style="top: 65%; left: 20%;">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <div class="map-zone" data-zone="mall" style="top: 30%; left: 75%;">
+                        <i class="fa-solid fa-shopping-bag"></i>
+                    </div>
+                    <div class="map-zone" data-zone="gov" style="top: 80%; left: 70%;">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Add leaflet interactive map below -->
+            <h2>Live Interactive Map</h2>
+            <div id="cityMap"></div>
+
+
+        </section>
+
+        <section id="connect" class="page">
+            <header class="page-header">
+                <h1>Feedback & Citizen Connect</h1>
+                <p>Have an issue or a suggestion? Let us know!</p>
+            </header>
+
+            <div class="connect-grid">
+                <form id="feedback-form" class="connect-form" novalidate>
+                    <div class="form-group">
+                        <label for="user-name">Full Name</label>
+                        <input type="text" id="user-name" name="name" required autocomplete="name">
+                        <small class="error-message">Name is required.</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-email">Email Address</label>
+                        <input type="email" id="user-email" name="email" required autocomplete="email">
+                        <small class="error-message">A valid email is required.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-subject">Subject</label>
+                        <select id="user-subject" name="subject">
+                            <option value="Issue">Report an Issue</option>
+                            <option value="Suggestion">Make a Suggestion</option>
+                            <option value="Compliment">Give a Compliment</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-message">Message</label>
+                        <textarea id="user-message" name="message" rows="6" required></textarea>
+                        <small class="error-message">Message cannot be empty.</small>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Feedback</button>
+                </form>
+
+                <div class="community-stats glass-card">
+                    <h3><i class="fa-solid fa-users"></i> Our Community</h3>
+                    <p>Join thousands of citizens making our city better.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h4 id="stat-reports">0</h4>
+                            <span>Issues Reported</span>
+                        </div>
+                        <div class="stat-item">
+                            <h4 id="stat-users">0</h4>
+                            <span>Active Users</span>
+                        </div>
+                        <div class="stat-item">
+                            <h4 id="stat-resolved">0%</h4>
+                            <span>Resolved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <nav class="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+        <a href="#home" class="mobile-nav-link active" data-page="home" aria-label="Dashboard">
+            <i class="fa-solid fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="#alerts" class="mobile-nav-link" data-page="alerts" aria-label="Alerts">
+            <i class="fa-solid fa-bullhorn"></i>
+            <span>Alerts</span>
+        </a>
+        <a href="#map" class="mobile-nav-link" data-page="map" aria-label="Map">
+            <i class="fa-solid fa-map-marked-alt"></i>
+            <span>Map</span>
+        </a>
+        <a href="#connect" class="mobile-nav-link" data-page="connect" aria-label="Connect">
+            <i class="fa-solid fa-comments"></i>
+            <span>Connect</span>
+        </a>
+    </nav>
+
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close Modal">&times;</button>
+            <h3 id="modal-title">Modal Title</h3>
+            <div id="modal-body">
+                <p>Modal content goes here.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/map.js"></script>
+
+</body>
+</html>
