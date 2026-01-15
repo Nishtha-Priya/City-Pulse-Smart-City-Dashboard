@@ -1,4 +1,4 @@
-# CityPulse – Smart City Information Dashboard
+# 🌆 CityPulse – Smart City Information Dashboard
 
 A web-based interactive dashboard that visualizes real-time and static smart city data, offering insights into weather, traffic, alerts, and community engagement.
 
