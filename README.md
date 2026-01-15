@@ -3,20 +3,20 @@
 A web-based interactive dashboard that visualizes real-time and static smart city data, offering insights into weather, traffic, alerts, and community engagement.
 
 ## Overview
-CityPulse is an interactive dashboard built with HTML, CSS, and JavaScript. It displays smart city information including weather conditions, AQI, traffic density, alerts, and more, using modern UI elements and Leaflet.js for maps. :contentReference[oaicite:5]{index=5}
+CityPulse is an interactive dashboard built with HTML, CSS, and JavaScript. It displays smart city information including weather conditions, AQI, traffic density, alerts, and more, using modern UI elements and Leaflet.js for maps.
 
 ## Features
 - Leaflet-powered interactive campus/city map
 - Real-time weather card display
 - AQI & Traffic gauge visualizations
 - Alert filtering by type
-- Light/Dark mode and responsive layout :contentReference[oaicite:6]{index=6}
+- Light/Dark mode and responsive layout
 
 ## Tech Stack
 - **Frontend:** HTML5, CSS3, JavaScript  
 - **UI/Icons:** CSS Variables, Font Awesome  
 - **Map Engine:** Leaflet.js + OpenStreetMap tiles  
-- **Deployment:** GitHub Pages :contentReference[oaicite:7]{index=7}
+- **Deployment:** GitHub Pages
 
 ## Folder Structure
 Project <br>
@@ -53,7 +53,7 @@ Project <br>
 Pull requests are welcome! For major changes, open an issue first to discuss your ideas.
 
 ## License
-This project is licensed under the MIT License. :contentReference[oaicite:10]{index=10}
+This project is licensed under the MIT License.
 
 ## Teammates
 Ayush Supakar  
