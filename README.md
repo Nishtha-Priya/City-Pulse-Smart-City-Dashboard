@@ -1,85 +1,63 @@
-# 🌆 CityPulse – Smart City Information Dashboard
+# CityPulse – Smart City Information Dashboard
 
-CityPulse is an interactive web-based dashboard designed to provide real-time city insights, including weather conditions, alerts, traffic density, community engagement, and an interactive smart map powered by Leaflet.js.
-It features a modern glass-neomorphic UI, dark/light theme, smooth navigation, and mobile-friendly layout.
+A web-based interactive dashboard that visualizes real-time and static smart city data, offering insights into weather, traffic, alerts, and community engagement.
 
-## 🚀 Live Demo
+## Overview
+CityPulse is an interactive dashboard built with HTML, CSS, and JavaScript. It displays smart city information including weather conditions, AQI, traffic density, alerts, and more, using modern UI elements and Leaflet.js for maps. :contentReference[oaicite:5]{index=5}
 
-🔗 Hosted on GitHub Pages:
-👉 Paste your deployed link here
-https://<username>.github.io/City-Pulse-Smart-City-Dashboard/
+## Features
+- Leaflet-powered interactive campus/city map
+- Real-time weather card display
+- AQI & Traffic gauge visualizations
+- Alert filtering by type
+- Light/Dark mode and responsive layout :contentReference[oaicite:6]{index=6}
 
-## 🎯 Features
-Feature	Description
-- Interactive Map	Leaflet-powered campus/city map with custom markers
-- Live Weather Card	Real-time temperature & conditions
-- AQI & Traffic Gauges	Circular gauge-styled visualization
-- Alerts & Filters	Categorized civic alerts (Traffic, Health, Weather, Public)
-- Citizen Connect	Feedback form with validation
-- Theme Toggle	Light/Dark mode with smooth transitions
-- Responsive UI	Works on desktop, tablet & mobile
-- Glassmorphism UI	Modern glowing card components
-## 🏗 Tech Stack
-- Category	Technology
-- Frontend	HTML5, CSS3, JavaScript
-- UI/Icons	Font Awesome, CSS Variables, Animations
-- Map Engine	Leaflet.js + OSM tiles
-- Deployment	GitHub Pages
-## 📂 Folder Structure
-📦 Project
-├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   ├── data.js
-│   ├── ui.js
-│   ├── main.js
-│   └── map.js
-└── README.md
+## Tech Stack
+- **Frontend:** HTML5, CSS3, JavaScript  
+- **UI/Icons:** CSS Variables, Font Awesome  
+- **Map Engine:** Leaflet.js + OpenStreetMap tiles  
+- **Deployment:** GitHub Pages :contentReference[oaicite:7]{index=7}
 
-## 🖥 How to Run Locally
+## Folder Structure
+Project <br>
+├── index.html<br>
+├── css/<br>
+│ └── style.css<br>
+├── js/<br>
+│ ├── data.js<br>
+│ ├── main.js<br>
+│ ├── ui.js<br>
+│ └── map.js<br>
+└── README.md<br>
+
+## Installation
+1. Clone the repository:
 ```bash
-git clone https://github.com/<username>/City-Pulse-Smart-City-Dashboard.git
-cd City-Pulse-Smart-City-Dashboard
+   git clone https://github.com/Nishtha-Priya/City-Pulse-Smart-City-Dashboard.git
 ```
-Open index.html in a browser
+3. Navigate to the project directory
+4. Open `index.html` in your browser  
+   (or use a Live Server extension for hot reload)
 
-Or using VS Code Live Server extension.
+## Usage
+• Explore the interactive dashboard to view weather, AQI, alerts, and map data.  
+• Use theme switcher for light/dark mode and resize for mobile responsiveness.
 
-## 🌍 Custom Domain Setup (Optional)
+## Future Enhancements
+- Live GPS based tracking
+- Integration with public city APIs (traffic, pollution, buses)
+- Predictive analytics with ML
+- Push alerts and user accounts :contentReference[oaicite:9]{index=9}
 
-Add A & CNAME DNS records
+## Contributing
+Pull requests are welcome! For major changes, open an issue first to discuss your ideas.
 
-Add a CNAME file in repo with your domain name
+## License
+This project is licensed under the MIT License. :contentReference[oaicite:10]{index=10}
 
-Enable HTTPS + Enforce HTTPS in GitHub Pages
-
-## 📌 Future Enhancements (Ideas)
-
-Live GPS-based map tracking
-
-Integration with real city APIs (Pollution, Metro, Buses)
-
-AI-based predictive analytics
-
-Push notification alerts
-
-User accounts & authentication
-
-## 🤝 Contributing
-
-Pull requests are welcome!
-For major changes, please open an issue first to discuss proposed updates.
-
-##📜 License
-
-This project is licensed under the MIT License — free to modify, distribute & improve.
-
-##👩‍💻 Author
-
-Ayush Supakar <br>
-Nishtha Priya<br>
-Aisha Aijaz<br>
-Akansha Verma<br>
-Bhanuteja Padamata<br>
-💌 Feel free to connect for collaborations!
+## Teammates
+Ayush Supakar  
+Nishtha Priya  
+Aisha Aijaz
+Akansha Verma  
+Bhanuteja Padamata
