@@ -58,6 +58,6 @@ This project is licensed under the MIT License.
 ## Teammates
 Ayush Supakar  
 Nishtha Priya  
-Aisha Aijaz
+Aisha Aijaz <br>
 Akansha Verma  
 Bhanuteja Padamata
